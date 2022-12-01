@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native';
-
-
+import { StyleSheet, Text, ScrollView, View, Image } from 'react-native';
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
+
+import Task from "./components/Task.js"
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -13,13 +13,14 @@ export default function App() {
   if (!fontsLoaded) { 
     return null;
   }
+  
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
       fontFamily: 'WorkSans_400Regular',
-      color: '#2c2d30'
+      color: '#2c2d30',
     },
 
     welcomeBanner: {
@@ -29,14 +30,17 @@ export default function App() {
     welcomeTitle: {
       fontFamily: 'WorkSans_500Medium',
       fontSize: 22, 
-      paddingTop: 75, 
-      paddingLeft: 15
+      marginTop: 75, 
+      marginLeft: 16,
+      marginRight: 16,
+      
     },
 
     welcomeSubtitle: {
       fontSize: 16, 
-      paddingTop: '5%', 
-      paddingLeft: 15
+      marginTop: 24, 
+      marginLeft: 16,
+      marginRight: 16,
     },
 
     welcomeEmoticonsImages: {
@@ -53,40 +57,90 @@ export default function App() {
     welcomeEmoticonsContainer: {
       flexDirection: 'row', 
       justifyContent: 'space-between',
-      paddingTop: '5%',
-      paddingLeft: 15 ,
-      paddingRight: 15, 
+      marginTop: 16,
+      marginLeft: 16 ,
+      marginRight: 16, 
     },
 
     welcomeEmoticonText: {
       fontSize: 12,
       textAlign: 'center',
-      paddingTop: 5,
-      paddingBottom: 25
+      marginTop: 8,
+      marginBottom: 32,
     },
 
     homeTitle: {
       fontFamily: 'WorkSans_500Medium',
       fontSize: 22,
-      paddingLeft: 15,
-      paddingTop: '5%',
+      marginLeft: 16,
+      marginRight: 16,
+      marginTop: 24,
+      marginBottom: 24,
+      
     },
 
     taskContainer: {
+      marginLeft: 16,
+      marginRight: 16,
+    },
 
+    task: {
+      marginBottom: 8,
+      paddingLeft: 24,
+      paddingRight: 24,
+      flexDirection: 'row', 
+      justifyContent: 'space-between',
+      borderWidth: 2,
+      borderColor: '#fff1ef',
+      borderRadius: 24, 
+    },
+
+    taskTimeText: {
+      color: '#828997',
+      fontSize: 14,
+      marginTop: 16
+    },
+
+    taskTitleText: {
+      fontFamily: 'WorkSans_500Medium',
+      fontSize: 20,
+      marginTop: 8,
+    },
+
+    taskProfileContainer: {
+      flexDirection: 'row', 
+      marginTop: 8, 
+      marginBottom: 16,
     },
 
     taskProfileImage: {
+      height: 32,
+      width: 32,
+      resizeMode: 'contain',
+      borderRadius: 100, 
+      marginRight: 8,
+    },
+    
+    taskIcon: {
       height: 30,
       width: 30,
       resizeMode: 'contain',
       borderRadius: 100, 
+      alignSelf: 'center'
+    },
+
+    taskIconBackground: {
+      backgroundColor:'#fff1ef',
+      height: 60,
+      width: 60,
+      justifyContent: 'center',
+      borderRadius: 60,
+      alignSelf: 'center',
     }
-    
   });
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.welcomeBanner}> 
         <Text style={styles.welcomeTitle}>Welcome, Sarah</Text>
         <Text style={styles.welcomeSubtitle}>How are you feeling?</Text>
@@ -114,23 +168,13 @@ export default function App() {
         </View>
       </View>
       <Text style={styles.homeTitle}>Today</Text>
-      <View>
-        <View>
-          <View>
-            <Text>8:00 PM</Text>
-            <Text>Meditate</Text>
-            <View>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/user.jpeg')}></Image>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/cole.jpeg')}></Image>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/lily.jpeg')}></Image>
-            </View>
-          </View>
-          
-        </View>
-      
-
+      <View style={styles.taskContainer}>
+        <Task title="Meditate" time="8:00 PM" icon={require('./assets/TaskIcons/meditate.png')}/>
+        <Task title="Journal" time="Any time" icon={require('./assets/TaskIcons/journal.png')}/>
+        <Task title="Listen to music" time="Any time" icon={require('./assets/TaskIcons/music.png')}/>
+        <Task title="Take a walk" time="Any time" icon={require('./assets/TaskIcons/walk.png')}/>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
