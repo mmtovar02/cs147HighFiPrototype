@@ -21,13 +21,13 @@ export default function WelcomeBanner() {
         welcomeTitle: {
             fontFamily: 'WorkSans_500Medium',
             fontSize: 22, 
-            marginTop: 75, 
+            marginTop: 24, 
             marginLeft: 16,
-            marginRight: 16,
-            
+            marginRight: 16, 
         },
       
         welcomeSubtitle: {
+            fontFamily: 'WorkSans_400Regular',
             fontSize: 16, 
             marginTop: 24, 
             marginLeft: 16,
@@ -43,7 +43,6 @@ export default function WelcomeBanner() {
         },
       
     });
-
  
     return (
         <View style={styles.welcomeBanner}> 

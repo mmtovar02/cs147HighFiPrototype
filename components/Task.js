@@ -25,6 +25,7 @@ export default function Task(props) {
         },
   
         taskTimeText: {
+            fontFamily: 'WorkSans_400Regular',
             color: '#828997',
             fontSize: 14,
             marginTop: 16
