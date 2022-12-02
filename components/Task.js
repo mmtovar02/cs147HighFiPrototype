@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
 export default function Task(props) {
@@ -67,10 +67,9 @@ export default function Task(props) {
             alignSelf: 'center',
         },
     });
-
  
     return (
-        <View style={styles.task}>
+        <TouchableOpacity style={styles.task} onPress={() => {props.navigation.navigate('GroupMeditation')}}>
             <View>
                 <Text style={styles.taskTimeText}>{props.time}</Text>
                 <Text style={styles.taskTitleText}>{props.title}</Text>
@@ -83,7 +82,7 @@ export default function Task(props) {
             <View style={styles.taskIconBackground}>
                 <Image style={styles.taskIcon} source={props.icon}></Image>
             </View>
-        </View>
+        </TouchableOpacity>
     );
     
 }

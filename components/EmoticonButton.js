@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import {useFonts, WorkSans_400Regular} from '@expo-google-fonts/work-sans'
 
 export default function EmoticonButton(props) {
@@ -38,11 +38,11 @@ export default function EmoticonButton(props) {
     });
 
     return (
-        <View>
+        <TouchableOpacity>
             <View style={styles.emoticonBackground}>
                 <Image style={styles.emoticonIcon} source={props.icon}></Image>
             </View>
             <Text style={styles.emoticonText}>{props.label}</Text>
-        </View>
+        </TouchableOpacity>
     );  
 }
