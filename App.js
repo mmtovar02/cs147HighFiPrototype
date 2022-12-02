@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MainTabs from './screens/MainTabs.js';
 import GroupMeditation from './screens/GroupMeditation.js';
+import Home_meditationComplete from './screens/Home_meditationComplete.js';
+import Home from './screens/Home.js';
 
 const Stack = createStackNavigator();
 
@@ -24,7 +26,6 @@ export default function App() {
           headerShown: false
         }}
       >
-
         <Stack.Screen name="MainTabs" component={MainTabs}/>
         <Stack.Screen name="GroupMeditation" component={GroupMeditation}/>
       </Stack.Navigator>

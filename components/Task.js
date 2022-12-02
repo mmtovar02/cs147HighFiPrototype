@@ -66,10 +66,31 @@ export default function Task(props) {
             borderRadius: 60,
             alignSelf: 'center',
         },
+
+        completedTask: {
+            fontFamily: 'WorkSans_400Regular',
+            marginBottom: 8,
+            paddingLeft: 24,
+            paddingRight: 24,
+            flexDirection: 'row', 
+            justifyContent: 'space-between',
+            borderWidth: 2,
+            borderColor: '#fff1ef',
+            borderRadius: 24, 
+            backgroundColor:'#fff8f8',
+        },
+
+        completedTaskIconBackground: {
+            height: 60,
+            width: 60,
+            justifyContent: 'center',
+            borderRadius: 60,
+            alignSelf: 'center',
+        },
     });
  
     return (
-        <TouchableOpacity style={styles.task} onPress={() => {props.navigation.navigate('GroupMeditation')}}>
+        <TouchableOpacity style={props.complete? styles.completedTask : styles.task} onPress={() => {props.navigation.navigate('GroupMeditation')}}>
             <View>
                 <Text style={styles.taskTimeText}>{props.time}</Text>
                 <Text style={styles.taskTitleText}>{props.title}</Text>
@@ -79,7 +100,7 @@ export default function Task(props) {
                     <Image style={styles.taskProfileImage} source={require('../assets/ProfilePictures/lily.jpeg')}></Image>
                 </View>
             </View>
-            <View style={styles.taskIconBackground}>
+            <View style={props.complete? styles.completedTaskIconBackground : styles.taskIconBackground}>
                 <Image style={styles.taskIcon} source={props.icon}></Image>
             </View>
         </TouchableOpacity>
