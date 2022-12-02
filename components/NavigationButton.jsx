@@ -21,9 +21,9 @@ export default function NavigationButton({text, onPress}) {
     });
 
     return(
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('MeditationCompletion.jsx')}>
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.button}>
-                <Text style={styles.buttonText}> {text} </Text>
+                <Text style={styles.buttonText}>{text}</Text>
             </View>
         </TouchableOpacity>
     )

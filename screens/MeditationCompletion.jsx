@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     }
 })
 
-function MeditationCompletion(){
+function MeditationCompletion(props){
     return(
         <View style = {styles.container}>
             
@@ -100,7 +100,9 @@ function MeditationCompletion(){
                 </Text>
             </View>
             <View style = {{marginTop: 88}}>
-                <NavigationButton text ='Return to Home'> </NavigationButton> 
+                <TouchableOpacity >
+                    <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('MainTabs')}}> </NavigationButton> 
+                </TouchableOpacity>
             </View>
             
         </View>

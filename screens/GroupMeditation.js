@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 
 
-export default function GroupMeditation() {
+export default function GroupMeditation(props) {
   let [fontsLoaded] = useFonts({
     WorkSans_400Regular,
     WorkSans_500Medium, 
@@ -123,7 +124,11 @@ export default function GroupMeditation() {
                 <Feather name='x' size={32} color='#2c2d30' style={styles.x}/>
             </View>
             <ScrollView>
-                <Image style={styles.video} source={require('../assets/Miscellaneous/meditationVideo.png')}/>
+                
+                <TouchableOpacity onPress={() => {props.navigation.navigate('MeditationCompletion')}}>
+                    <Image style={styles.video} source={require('../assets/Miscellaneous/meditationVideo.png')}/>
+                </TouchableOpacity>
+    
                 <View style={styles.sliderContainer}>
                     <View style={styles.sliderBar}/>
                     <View style={styles.sliderThumb}/>

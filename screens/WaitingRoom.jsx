@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
 import NavigationButton from '../components/NavigationButton.jsx'
 import SwitchButton from '../components/SwitchButton.jsx'
+import { useLinkProps } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
     container: {
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
     },
 });
 
-function WaitingRoom() {
+function WaitingRoom(props) {
     return(
         <View style = {styles.container}>
             <View style = {styles.pinkBackground}> 
@@ -115,7 +116,7 @@ function WaitingRoom() {
                     <Text style = {{...styles.toggleText, marginRight: 22}}> Audio </Text>
                     <SwitchButton> </SwitchButton>
                 </View> 
-                <NavigationButton text='Enter Session'> </NavigationButton>
+                <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
         </View>
         

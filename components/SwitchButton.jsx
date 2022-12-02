@@ -8,7 +8,7 @@ export default function ToggleButton() {
         setIsEnabled(previousState => !previousState)
     }
     return(
-        <View> 
+        <View>
         <Switch
             trackColor={{false: "white", true: "#dee3df"}}
             thumbColor={isEnabled ? "#4D8D8C": "white"}
