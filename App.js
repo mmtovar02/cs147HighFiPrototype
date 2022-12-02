@@ -5,6 +5,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { FontAwesome5 } from '@expo/vector-icons';
 
 import Home from './screens/Home.js'
+import GroupMeditation from './screens/GroupMeditation.js'
 import WelcomeBanner from './components/WelcomeBanner.js';
 
 
@@ -21,45 +22,46 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator 
-        initialRouteName='Home'
-        activeColor="#2c2d30"
-        inactiveColor="#d5d9e2"
-        labeled={false}
-        barStyle={{ 
-          backgroundColor: '#ffff', 
-          borderTopColor: '#e1e4eb', 
-          borderTopWidth: 0.5, 
-          shadowOpacity: 0, 
-          elevation: 0,
-          paddingTop: 8,
-          paddingBottom: 8,
-          paddingLeft: 24,
-          paddingRight: 24}}>
-        <Tab.Screen 
-          name='Home' 
-          component={Home} 
-          options={{
-            tabBarIcon: ({color}) =>
-             (<FontAwesome5 name='calendar' size={24} color={color}/>)
-          }}/>
-        <Tab.Screen 
-          name='Chat' 
-          component={WelcomeBanner} 
-          options={{
-            tabBarIcon: ({color}) =>
-             (<FontAwesome5 name='comment' size={24} color={color}/>)
-          }}/>
-          <Tab.Screen 
-          name='Profile' 
-          component={WelcomeBanner} 
-          options={{
-            tabBarIcon: ({color}) =>
-             (<FontAwesome5 name='user' size={24} color={color}/>)
-          }}/>
-      </Tab.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Tab.Navigator 
+    //     initialRouteName='Home'
+    //     activeColor="#2c2d30"
+    //     inactiveColor="#d5d9e2"
+    //     labeled={false}
+    //     barStyle={{ 
+    //       backgroundColor: '#ffff', 
+    //       borderTopColor: '#e1e4eb', 
+    //       borderTopWidth: 0.5, 
+    //       shadowOpacity: 0, 
+    //       elevation: 0,
+    //       paddingTop: 8,
+    //       paddingBottom: 8,
+    //       paddingLeft: 24,
+    //       paddingRight: 24}}>
+    //     <Tab.Screen 
+    //       name='Home' 
+    //       component={Home} 
+    //       options={{
+    //         tabBarIcon: ({color}) =>
+    //          (<FontAwesome5 name='calendar' size={24} color={color}/>)
+    //       }}/>
+    //     <Tab.Screen 
+    //       name='Chat' 
+    //       component={GroupMeditation} 
+    //       options={{
+    //         tabBarIcon: ({color}) =>
+    //          (<FontAwesome5 name='comment' size={24} color={color}/>)
+    //       }}/>
+    //       <Tab.Screen 
+    //       name='Profile' 
+    //       component={WelcomeBanner} 
+    //       options={{
+    //         tabBarIcon: ({color}) =>
+    //          (<FontAwesome5 name='user' size={32} color={color}/>)
+    //       }}/>
+    //   </Tab.Navigator>
+    // </NavigationContainer>
+    <GroupMeditation />
   );
 }
 

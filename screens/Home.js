@@ -22,52 +22,6 @@ export default function Home() {
       color: '#2c2d30',
     },
 
-    welcomeBanner: {
-      backgroundColor:'#fff1ef',
-    },
-
-    welcomeTitle: {
-      fontFamily: 'WorkSans_500Medium',
-      fontSize: 22, 
-      marginTop: 75, 
-      marginLeft: 16,
-      marginRight: 16,
-      
-    },
-
-    welcomeSubtitle: {
-      fontSize: 16, 
-      marginTop: 24, 
-      marginLeft: 16,
-      marginRight: 16,
-    },
-
-    welcomeEmoticonsImages: {
-      height: 50,
-      width: 50,
-      resizeMode: 'contain',
-      borderWidth: 2,
-      paddingTop: 50,
-      paddingLeft: 50, 
-      borderRadius: 100, 
-      borderColor: '#fff',
-    },
-
-    welcomeEmoticonsContainer: {
-      flexDirection: 'row', 
-      justifyContent: 'space-between',
-      marginTop: 16,
-      marginLeft: 16 ,
-      marginRight: 16, 
-    },
-
-    welcomeEmoticonText: {
-      fontSize: 12,
-      textAlign: 'center',
-      marginTop: 8,
-      marginBottom: 32,
-    },
-
     homeTitle: {
       fontFamily: 'WorkSans_500Medium',
       fontSize: 22,
