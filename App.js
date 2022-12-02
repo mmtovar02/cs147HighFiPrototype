@@ -1,8 +1,18 @@
+import 'react-native-gesture-handler';
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native'
 import { StyleSheet, Text, SafeAreaView, View, Image } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack'
+import { useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
+import WaitingRoom from './screens/WaitingRoom.jsx'
+import MeditationCompletion from './screens/MeditationCompletion.jsx'
 
-import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
+const Stack = createStackNavigator();
+function MyStack () {
+  
+}
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -13,7 +23,14 @@ export default function App() {
   if (!fontsLoaded) { 
     return null;
   }
-
+  return(
+    <NavigationContainer> 
+    <Stack.Navigator>
+      <Stack.Screen name="Great job!" component={WaitingRoom}/>
+    </Stack.Navigator>
+  </NavigationContainer>
+    
+  );
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -84,53 +101,5 @@ export default function App() {
     }
     
   });
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.welcomeBanner}> 
-        <Text style={styles.welcomeTitle}>Welcome, Sarah</Text>
-        <Text style={styles.welcomeSubtitle}>How are you feeling?</Text>
-        <View style={styles.welcomeEmoticonsContainer}>
-          <View>
-            <Image style={styles.welcomeEmoticonsImages} source={require('./assets/HeartEmoticons/amazing.png')}></Image>
-            <Text style={styles.welcomeEmoticonText}>Amazing</Text>
-          </View>
-          <View>
-            <Image style={styles.welcomeEmoticonsImages} source={require('./assets/HeartEmoticons/good.png')}></Image>
-            <Text style={styles.welcomeEmoticonText}>Good</Text>
-          </View>
-          <View>
-            <Image style={styles.welcomeEmoticonsImages} source={require('./assets/HeartEmoticons/neutral.png')}></Image>
-            <Text style={styles.welcomeEmoticonText}>Neutral</Text>
-          </View>
-          <View>
-            <Image style={styles.welcomeEmoticonsImages} source={require('./assets/HeartEmoticons/bad.png')}></Image>
-            <Text style={styles.welcomeEmoticonText}>Bad</Text>
-          </View>
-          <View>
-            <Image style={styles.welcomeEmoticonsImages} source={require('./assets/HeartEmoticons/awful.png')}></Image>
-            <Text style={styles.welcomeEmoticonText}>Awful</Text>
-          </View>
-        </View>
-      </View>
-      <Text style={styles.homeTitle}>Today</Text>
-      <View>
-        <View>
-          <View>
-            <Text>8:00 PM</Text>
-            <Text>Meditate</Text>
-            <View>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/user.jpeg')}></Image>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/cole.jpeg')}></Image>
-              <Image style={styles.taskProfileImage} source={require('./assets/ProfilePictures/lily.jpeg')}></Image>
-            </View>
-          </View>
-          
-        </View>
-      
-
-      </View>
-    </View>
-  );
 }
 
