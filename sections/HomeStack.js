@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from '../screens/Home/Home.js';
 import Home_meditationComplete from '../screens/Home/Home_meditationComplete.js';
+import AddFriends from '../screens/AddHabit/AddFriends.js';
 
 
 const Stack = createStackNavigator();
@@ -25,7 +26,8 @@ export default function App() {
         }}
         >
         <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="Home_meditationComplete" component={Home_meditationComplete}/>
+        <Stack.Screen name="Home_meditationComplete" component={Home_meditationComplete} />
+        <Stack.Screen name="AddFriends" component={AddFriends} />
       </Stack.Navigator>
   );
 }
