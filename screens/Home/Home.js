@@ -1,5 +1,5 @@
-import { StyleSheet, Text, ScrollView, View, Image, TouchableOpacity } from 'react-native';
-import { useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans';
+import { StyleSheet, Text, ScrollView, View } from 'react-native';
+import { useFonts, WorkSans_400Regular, WorkSans_500Medium } from '@expo-google-fonts/work-sans';
 
 import WelcomeBanner from '../../components/WelcomeBanner.js';
 import Task from "../../components/Task.js"

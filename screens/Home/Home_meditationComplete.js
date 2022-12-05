@@ -30,7 +30,7 @@ export default function Home_meditationComplete({ navigation }) {
             </View>
             <Text style={styles.homeTitle}>Done</Text>
             <View style={styles.taskContainer}>
-                <Task title="Meditate" time="8:00 PM" icon={require('../../assets/TaskIcons/meditate.png')} complete={true}/>
+                <Task title="Meditate" time="8:00 PM" icon={require('../../assets/TaskIcons/meditate.png')} complete={true} navigation={navigation}/>
             </View>
         </View>
       </ScrollView>
