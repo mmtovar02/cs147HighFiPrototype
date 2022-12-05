@@ -90,8 +90,7 @@ export default function Task(props) {
     });
  
     return (
-        //Remember this is hard-coded to go to the meditation waiting room right now
-        <TouchableOpacity style={props.complete? styles.completedTask : styles.task} onPress={() => {props.navigation.navigate('WaitingRoom')}}>
+        <TouchableOpacity style={props.complete? styles.completedTask : styles.task} onPress={() => {props.navigation? props.navigation.navigate('WaitingRoom') : null}}>
             <View>
                 <Text style={styles.taskTimeText}>{props.time}</Text>
                 <Text style={styles.taskTitleText}>{props.title}</Text>
