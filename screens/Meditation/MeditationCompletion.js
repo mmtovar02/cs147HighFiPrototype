@@ -5,7 +5,7 @@ import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity} 
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
-import NavigationButton from '../../components/NavigationButton.jsx'
+import NavigationButton from '../../components/NavigationButton.js'
 
 const styles = StyleSheet.create({
     container: {

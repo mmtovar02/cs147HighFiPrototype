@@ -3,9 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomNavigation from './sections/BottomNavigation.js';
 
-import WaitingRoom from './screens/Meditation/WaitingRoom.jsx';
+import WaitingRoom from './screens/Meditation/WaitingRoom.js';
 import GroupMeditation from './screens/Meditation/GroupMeditation.js';
-import MeditationCompletion from './screens/Meditation/MeditationCompletion.jsx';
+import MeditationCompletion from './screens/Meditation/MeditationCompletion.js';
 
 
 const Stack = createStackNavigator();

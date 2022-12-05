@@ -5,8 +5,8 @@ import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity }
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
-import NavigationButton from '../../components/NavigationButton.jsx'
-import SwitchButton from '../../components/SwitchButton.jsx'
+import NavigationButton from '../../components/NavigationButton.js'
+import SwitchButton from '../../components/SwitchButton.js'
 import { useLinkProps } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
