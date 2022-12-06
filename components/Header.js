@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
+import { useFonts, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
 import { Feather } from '@expo/vector-icons';
 
 export default function Header(props) {
     let [fontsLoaded] = useFonts({
-        WorkSans_400Regular,
         WorkSans_500Medium, 
     });
 

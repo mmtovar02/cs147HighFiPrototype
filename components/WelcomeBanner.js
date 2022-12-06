@@ -12,37 +12,6 @@ export default function WelcomeBanner() {
     if (!fontsLoaded) { 
         return null;
     }
-
-    const styles = StyleSheet.create({
-        welcomeBanner: {
-            backgroundColor:'#fff1ef',
-        },
-      
-        welcomeTitle: {
-            fontFamily: 'WorkSans_500Medium',
-            fontSize: 22, 
-            marginTop: 24, 
-            marginLeft: 16,
-            marginRight: 16, 
-        },
-      
-        welcomeSubtitle: {
-            fontFamily: 'WorkSans_400Regular',
-            fontSize: 16, 
-            marginTop: 24, 
-            marginLeft: 16,
-            marginRight: 16,
-        },
-      
-        welcomeEmoticonsContainer: {
-            flexDirection: 'row', 
-            justifyContent: 'space-between',
-            marginTop: 16,
-            marginLeft: 16 ,
-            marginRight: 16, 
-        },
-      
-    });
  
     return (
         <View style={styles.welcomeBanner}> 
@@ -59,3 +28,34 @@ export default function WelcomeBanner() {
     );
     
 }
+
+const styles = StyleSheet.create({
+    welcomeBanner: {
+        backgroundColor:'#fff1ef',
+    },
+  
+    welcomeTitle: {
+        fontFamily: 'WorkSans_500Medium',
+        fontSize: 22, 
+        marginTop: 24, 
+        marginLeft: 16,
+        marginRight: 16, 
+    },
+  
+    welcomeSubtitle: {
+        fontFamily: 'WorkSans_400Regular',
+        fontSize: 16, 
+        marginTop: 24, 
+        marginLeft: 16,
+        marginRight: 16,
+    },
+  
+    welcomeEmoticonsContainer: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between',
+        marginTop: 16,
+        marginLeft: 16 ,
+        marginRight: 16, 
+    },
+  
+});

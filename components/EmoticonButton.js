@@ -10,33 +10,6 @@ export default function EmoticonButton(props) {
         return null;
     }
 
-    const styles = StyleSheet.create({
-        emoticonIcon: {
-            height: 40,
-            width: 40,
-            resizeMode: 'contain',
-            alignSelf: 'center'
-        },
-  
-        emoticonBackground: {
-            height: 60,
-            width: 60,
-            borderRadius: 60,
-            borderColor: '#fff',
-            borderWidth: 4,
-            justifyContent: 'center',
-            alignSelf: 'center',
-        },
-      
-        emoticonText: {
-            fontFamily: 'WorkSans_400Regular',
-            fontSize: 12,
-            textAlign: 'center',
-            marginTop: 8,
-            marginBottom: 32,
-        },
-    });
-
     return (
         <TouchableOpacity>
             <View style={styles.emoticonBackground}>
@@ -46,3 +19,30 @@ export default function EmoticonButton(props) {
         </TouchableOpacity>
     );  
 }
+
+const styles = StyleSheet.create({
+    emoticonIcon: {
+        height: 40,
+        width: 40,
+        resizeMode: 'contain',
+        alignSelf: 'center'
+    },
+
+    emoticonBackground: {
+        height: 60,
+        width: 60,
+        borderRadius: 60,
+        borderColor: '#fff',
+        borderWidth: 4,
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+  
+    emoticonText: {
+        fontFamily: 'WorkSans_400Regular',
+        fontSize: 12,
+        textAlign: 'center',
+        marginTop: 8,
+        marginBottom: 32,
+    },
+});

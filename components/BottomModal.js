@@ -12,63 +12,6 @@ export default function BottomModal(props) {
         return null;
     }
 
-    const styles = StyleSheet.create({
-        modal: {
-            backgroundColor: '#ffff',
-            flex: 0.2,
-            borderRadius: 16,
-        },
-
-        text: {
-            fontFamily: 'WorkSans_400Regular',
-            fontSize: 16,
-            marginTop: 24,
-            marginLeft: 16,
-            color: '#2c2d30'
-        },
-
-        buttonContainer: {
-            marginTop: 16,
-            marginLeft: 16,
-            marginRight: 16,
-            flexDirection: 'row', 
-            justifyContent: 'space-between'
-        },
-
-        neutralButton: {
-            width: 160,
-            height: 46,
-            borderColor: '#e1e4eb',
-            borderWidth: 1, 
-            borderRadius: 100,
-            justifyContent: 'center',
-        },
-
-        neutralButtonText: {
-            fontFamily: 'WorkSans_500Medium', 
-            fontSize: 16, 
-            alignSelf: 'center', 
-            color: '#2c2d30'
-        },
-
-        actionButton: {
-            width: 171,
-            height: 46,
-            borderRadius: 100,
-            backgroundColor: '#e32754',
-            justifyContent: 'center',
-        },
-
-        actionButtonText: {
-            fontFamily: 'WorkSans_500Medium', 
-            fontSize: 16, 
-            alignSelf: 'center', 
-            color: '#ffff'
-        }
-
-
-    });
-
     return (
         <Modal
             isVisible={props.isVisible}
@@ -89,3 +32,59 @@ export default function BottomModal(props) {
         </Modal>
     );  
 }
+
+const styles = StyleSheet.create({
+    modal: {
+        backgroundColor: '#ffff',
+        flex: 0.2,
+        borderRadius: 16,
+    },
+
+    text: {
+        fontFamily: 'WorkSans_400Regular',
+        fontSize: 16,
+        marginTop: 24,
+        marginLeft: 16,
+        color: '#2c2d30'
+    },
+
+    buttonContainer: {
+        marginTop: 16,
+        marginLeft: 16,
+        marginRight: 16,
+        flexDirection: 'row', 
+        justifyContent: 'space-between'
+    },
+
+    neutralButton: {
+        width: 160,
+        height: 46,
+        borderColor: '#e1e4eb',
+        borderWidth: 1, 
+        borderRadius: 100,
+        justifyContent: 'center',
+    },
+
+    neutralButtonText: {
+        fontFamily: 'WorkSans_500Medium', 
+        fontSize: 16, 
+        alignSelf: 'center', 
+        color: '#2c2d30'
+    },
+
+    actionButton: {
+        width: 171,
+        height: 46,
+        borderRadius: 100,
+        backgroundColor: '#e32754',
+        justifyContent: 'center',
+    },
+
+    actionButtonText: {
+        fontFamily: 'WorkSans_500Medium', 
+        fontSize: 16, 
+        alignSelf: 'center', 
+        color: '#ffff'
+    }
+
+});

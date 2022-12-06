@@ -1,6 +1,6 @@
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default function AddTaskButton(props) {
+export default function AddHabitButton(props) {
     return (
         <TouchableOpacity style={styles.plusBackground} onPress={() => {props.navigation.navigate('AddFriends')}}>
             <Image style={styles.plusIcon} source={require('../assets/NavigationIcons/plus.png')}/>

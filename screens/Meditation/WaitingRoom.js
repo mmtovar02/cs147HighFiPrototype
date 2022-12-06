@@ -116,6 +116,7 @@ function WaitingRoom(props) {
                     <Text style = {{...styles.toggleText, marginRight: 22}}> Audio </Text>
                     <SwitchButton> </SwitchButton>
                 </View> 
+                
                 <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
         </View>

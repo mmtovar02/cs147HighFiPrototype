@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
-import { AntDesign } from '@expo/vector-icons';
 
 import Header from '../../components/Header.js'
 import SearchField from '../../components/SearchField.js';
