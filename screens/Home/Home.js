@@ -1,14 +1,63 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
-import { useFonts, WorkSans_400Regular, WorkSans_500Medium } from '@expo-google-fonts/work-sans';
+import { StyleSheet, Text, ScrollView, View, TouchableOpacity } from 'react-native';
+import Toast from 'react-native-toast-message'
+import { useFonts, WorkSans_400Regular, WorkSans_500Medium, WorkSans_600SemiBold} from '@expo-google-fonts/work-sans';
 
 import WelcomeBanner from '../../components/WelcomeBanner.js';
 import Task from "../../components/Task.js"
 import AddHabitButton from '../../components/AddHabitButton.js';
 
+const toastConfig = {
+  invitationSent: (props) => (
+    <View 
+      style={{
+        flexDirection: 'row',
+        height: 60,
+        width: 340,
+        borderRadius: 8,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 2,
+        backgroundColor: '#2c2d30',
+        
+        justifyContent: 'space-around',
+    }}>
+      <Text
+        style={{
+          fontFamily: 'WorkSans_400Regular',
+          fontSize: 16,
+          color: '#ffff',
+          alignSelf: 'center'
+        }}  
+      >
+        {props.text1}
+      </Text>
+      <TouchableOpacity
+        style={{
+          alignSelf: 'center'
+        }}
+      >
+        <Text
+          style={{
+            fontFamily: 'WorkSans_600SemiBold',
+            fontSize: 16,
+            color: '#ffff',
+          }} 
+        >
+          Undo
+        </Text> 
+      </TouchableOpacity>  
+    </View>
+  ),
+}
+
+
+
 export default function Home({ navigation }) {
   let [fontsLoaded] = useFonts({
     WorkSans_400Regular,
     WorkSans_500Medium, 
+    WorkSans_600SemiBold
   });
 
   if (!fontsLoaded) { 
@@ -31,6 +80,7 @@ export default function Home({ navigation }) {
         </View>
       </ScrollView>
       <AddHabitButton navigation={navigation}/>
+      <Toast config={toastConfig}/>
     </View>
   );
 }
@@ -68,4 +118,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingBottom: 64
   },
+
+  toast: {
+    backgroundColor: '#2c2d30'
+  }
 });
+

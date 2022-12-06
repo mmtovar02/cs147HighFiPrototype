@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import Toast from 'react-native-toast-message'
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
 
 import Header from '../../components/Header.js'
@@ -17,7 +18,21 @@ export default function AddFriends({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Header title='Add friends' rightButtonLabel='Done'  includeBackArrow={true} navigation={navigation}/>
+            <Header 
+                title='Add friends' 
+                rightButtonLabel='Done'  
+                includeBackArrow={true} 
+                navigation={navigation}
+                onRightButtonPress={() => {
+                    Toast.show({
+                        type: 'invitationSent', 
+                        text1: 'Invitation sent to Cole and Lily',
+                        position: 'bottom', 
+                        bottomOffset: 0,
+                    });
+                    navigation.navigate("Home");
+                }} 
+            />
             <ScrollView>
                 <SearchField />
                 <View style={styles.friendsContainer}>
@@ -68,5 +83,4 @@ const styles = StyleSheet.create({
         color: '#767c8a',
         marginBottom: 16,
     },
-
 });
