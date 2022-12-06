@@ -5,7 +5,7 @@ import Header from '../../components/Header.js'
 import SearchField from '../../components/SearchField.js';
 import ContactBlock from '../../components/ContactBlock.js';
 
-export default function AddFriends() {
+export default function AddFriends({ navigation }) {
     let [fontsLoaded] = useFonts({
         WorkSans_400Regular,
         WorkSans_500Medium, 
@@ -17,7 +17,7 @@ export default function AddFriends() {
 
     return (
         <View style={styles.container}>
-            <Header/>
+            <Header title='Add friends' rightButtonLabel='Done'  includeBackArrow={true} navigation={navigation}/>
             <ScrollView>
                 <SearchField />
                 <View style={styles.friendsContainer}>

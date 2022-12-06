@@ -11,15 +11,31 @@ export default function Header(props) {
         return null;
     }
 
+    const getLeftComponents = () => {
+        if (props.includeBackArrow) {
+            return (
+                <TouchableOpacity onPress={() => props.navigation.goBack()} style={styles.leftButton}>
+                    <Feather name='chevron-left' size={32} color='#2c2d30'/>
+                </TouchableOpacity>
+            );
+        }
+    }
+
+    const getRightComponents = () => {
+        if (props.rightButtonLabel) {
+            return (
+                <TouchableOpacity onPress={props.onRightButtonPress} style={styles.rightButton}>
+                    <Text style={styles.rightButtonLabel}>{props.rightButtonLabel}</Text>
+                </TouchableOpacity>
+            );
+        }
+    }
+
     return (
         <View style={styles.header}>
-            <TouchableOpacity style={styles.leftButton}>
-                <Feather name='chevron-left' size={32} color='#2c2d30'/>
-            </TouchableOpacity>
-            <Text style={styles.headerTitle}>Add friends</Text>
-            <TouchableOpacity style={styles.rightButton}>
-                <Text style={styles.rightButtonText}>Done</Text>
-            </TouchableOpacity>
+            {getLeftComponents()}
+            <Text style={styles.headerTitle}>{props.title}</Text>
+            {getRightComponents()}
         </View>   
     );
 }
@@ -46,7 +62,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
 
-    rightButtonText: {
+    rightButtonLabel: {
         fontFamily: 'WorkSans_500Medium',
         fontSize: 22,
         color: '#4d8d8c'
