@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'rea
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
 
 import Header from '../../components/Header.js'
+import DiscussionTopic from '../../components/DiscussionTopic.js'
 
 export default function Inbox({ navigation }) {
     let [fontsLoaded] = useFonts({
@@ -30,7 +31,7 @@ export default function Inbox({ navigation }) {
                 }
             />
             <ScrollView>
-                
+                <DiscussionTopic/>
             </ScrollView>
         </View>
     );
