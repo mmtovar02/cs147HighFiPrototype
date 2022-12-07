@@ -23,9 +23,11 @@ export default function DiscussionTopic(props) {
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.question}>What are you doing this week to take care of yourself?</Text>
-                <TouchableOpacity style={styles.askButton}>
-                    <Text style={styles.askButtonLabel}>Ask</Text>
-                </TouchableOpacity>
+                {props.displayAskButton ? 
+                    <TouchableOpacity onPress={props.onAskButtonPress} style={styles.askButton}>
+                        <Text style={styles.askButtonLabel}>Ask</Text>
+                    </TouchableOpacity>
+                    : <View style={[styles.askButton, { backgroundColor: 'transparent' }]}/> }
             </View>
         </View>
     );

@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         height: 64,
-        // paddingBottom: 16,
         marginRight: 24,
     },
 
@@ -35,6 +34,5 @@ const styles = StyleSheet.create({
         width: 40,
         borderRadius: 100, 
         alignSelf: 'center',
-        // marginTop: 12
     },
 });
