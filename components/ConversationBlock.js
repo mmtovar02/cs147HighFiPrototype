@@ -60,7 +60,7 @@ export default function ConversationBlock(props) {
             );
         } else {
             return (
-                <TouchableOpacity style={styles.container}>
+                <TouchableOpacity onPress={props.onPress} style={styles.container}>
                     <ContactProfileImage image1={props.image1} image2={props.image2}/>
                     {getInnerConversationBlockComponents()}
                 </TouchableOpacity>

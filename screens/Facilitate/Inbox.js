@@ -38,6 +38,7 @@ export default function Inbox({ navigation }) {
                         facilitator={true}
                         notification={!askState}
                         selected={askState}
+                        onPress={() => navigation.navigate('Conversation')}
                         image1={require('../../assets/ProfilePictures/lily.jpeg')} 
                         image2={require('../../assets/ProfilePictures/cole.jpeg')}
                     />
