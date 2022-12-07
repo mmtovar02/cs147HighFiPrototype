@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Toast from 'react-native-toast-message'
-import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
+import { useFonts, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
 
 import Header from '../../components/Header.js'
 import SearchField from '../../components/SearchField.js';
@@ -8,7 +8,6 @@ import ContactBlock from '../../components/ContactBlock.js';
 
 export default function AddFriends({ navigation }) {
     let [fontsLoaded] = useFonts({
-        WorkSans_400Regular,
         WorkSans_500Medium, 
     });
 

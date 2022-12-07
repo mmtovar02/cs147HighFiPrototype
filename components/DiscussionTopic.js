@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useFonts, WorkSans_400Regular ,WorkSans_500Medium }from '@expo-google-fonts/work-sans';
 import CountDownTimer from 'react-native-countdown-timer-hooks';
 
-export default function ContactBlock(props) {
+export default function DiscussionTopic(props) {
     let [fontsLoaded] = useFonts({
         WorkSans_400Regular,
         WorkSans_500Medium, 
