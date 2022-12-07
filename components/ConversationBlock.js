@@ -3,6 +3,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium, WorkSans_600SemiBold }from '@expo-google-fonts/work-sans';
 
 import ContactProfileImage from './ContactProfileImage.js';
+import SelectConversationButton from './SelectConversationButton.js';
 
 export default function ConversationBlock(props) {
     let [fontsLoaded] = useFonts({
@@ -15,9 +16,8 @@ export default function ConversationBlock(props) {
         return null;
     }
 
-    return (
-        <TouchableOpacity style={styles.container}>
-            <ContactProfileImage image1={props.image1} image2={props.image2}/>
+    const getInnerConversationBlockComponents = () => {
+        return (
             <View style={styles.labelContainer}>
                 <View>
                     {props.facilitator ? 
@@ -37,15 +37,45 @@ export default function ConversationBlock(props) {
                 </View>
                 {props.notification? <View style={styles.notification}/> : "" }
             </View>
-        </TouchableOpacity>
-    );
+        );
+    }
+
+    const getConversation = () => {
+        if (props.selected) {
+            return (
+                <View style={styles.container}>
+                    <SelectConversationButton />
+                    <ContactProfileImage image1={props.image1} image2={props.image2}/>
+                    {getInnerConversationBlockComponents()}
+                </View>
+            );
+        } else if (props.grayed){
+            return (            
+                <View style={{opacity: 0.3}}>
+                    <View style={[styles.container, {opacity: 0.3}]}>
+                        <ContactProfileImage image1={props.image1} image2={props.image2}/>
+                        {getInnerConversationBlockComponents()}
+                    </View>
+                </View>
+            );
+        } else {
+            return (
+                <TouchableOpacity style={styles.container}>
+                    <ContactProfileImage image1={props.image1} image2={props.image2}/>
+                    {getInnerConversationBlockComponents()}
+                </TouchableOpacity>
+            );
+        }
+    }
+
+    return (getConversation());
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        marginBottom: 8,
+        paddingBottom: 8,
     },
 
     labelContainer: {
@@ -53,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignSelf: 'center',
-        marginTop: 8,
+        marginTop: 7,
     },
 
     facilitatorConversationLabel: {
@@ -91,5 +121,4 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         alignSelf: 'center'
     }
-
 });

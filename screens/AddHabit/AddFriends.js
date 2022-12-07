@@ -21,7 +21,7 @@ export default function AddFriends({ navigation }) {
                 title='Add friends' 
                 rightButtonLabel='Done'  
                 includeBackArrow={true} 
-                navigation={navigation}
+                onBackArrowPress={() => navigation.goBack()}
                 onRightButtonPress={() => {
                     Toast.show({
                         type: 'invitationSent', 

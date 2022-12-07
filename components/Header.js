@@ -14,7 +14,7 @@ export default function Header(props) {
     const getLeftComponents = () => {
         if (props.includeBackArrow) {
             return (
-                <TouchableOpacity onPress={() => props.navigation.goBack()} style={styles.leftButton}>
+                <TouchableOpacity onPress={props.onBackArrowPress} style={styles.leftButton}>
                     <Feather name='chevron-left' size={32} color='#2c2d30'/>
                 </TouchableOpacity>
             );
