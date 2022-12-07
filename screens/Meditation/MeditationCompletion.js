@@ -102,7 +102,7 @@ function MeditationCompletion(props){
             </View>
             <View style = {{marginTop: 88}}>
                 <TouchableOpacity >
-                    <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home_meditationComplete')}}> </NavigationButton> 
+                    <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home', { version: 'meditationComplete' })}}> </NavigationButton> 
                 </TouchableOpacity>
             </View> 
         </View>

@@ -51,9 +51,7 @@ const toastConfig = {
   ),
 }
 
-
-
-export default function Home({ navigation }) {
+export default function Home({ navigation, route }) {
   let [fontsLoaded] = useFonts({
     WorkSans_400Regular,
     WorkSans_500Medium, 
@@ -64,19 +62,59 @@ export default function Home({ navigation }) {
     return null;
   }
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.scrollLimit}></View>
-      <ScrollView>
-        <WelcomeBanner/>
-        <View style={styles.feed}>
-        <Text style={styles.homeTitle}>Today</Text>
+  let { version } = route.params ? route.params : { version: 'classic' };
+
+  let getHomeVersion = () => {
+    if (version == 'classic') {
+      return (
+        <View>
+          <Text style={styles.homeTitle}>Today</Text>
           <View style={styles.taskContainer}>
             <Task title="Meditate" time="8:00 PM" icon={require('../../assets/TaskIcons/meditate.png')} navigation={navigation}/>
             <Task title="Journal" time="Any time" icon={require('../../assets/TaskIcons/journal.png')}/>
             <Task title="Listen to music" time="Any time" icon={require('../../assets/TaskIcons/music.png')}/>
             <Task title="Take a walk" time="Any time" icon={require('../../assets/TaskIcons/walk.png')}/>
           </View>
+        </View>
+      );
+    } else if (version == 'meditationComplete') {
+      return (
+        <View>
+          <Text style={styles.homeTitle}>Today</Text>
+            <View style={styles.taskContainer}>
+                <Task title="Journal" time="Any time" icon={require('../../assets/TaskIcons/journal.png')} complete={false}/>
+                <Task title="Listen to music" time="Any time" icon={require('../../assets/TaskIcons/music.png')} complete={false}/>
+                <Task title="Take a walk" time="Any time" icon={require('../../assets/TaskIcons/walk.png')} complete={false}/>
+            </View>
+            <Text style={styles.homeTitle}>Done</Text>
+            <View style={styles.taskContainer}>
+                <Task title="Meditate" time="8:00 PM" icon={require('../../assets/TaskIcons/meditate.png')} complete={true} navigation={navigation}/>
+            </View>
+        </View>
+      );
+    } else if (version == 'addHabitComplete') {
+      return (
+        <View>
+          <Text style={styles.homeTitle}>Today</Text>
+          <View style={styles.taskContainer}>
+            <Task title="Do yoga" time="Any time" icon={require('../../assets/TaskIcons/yoga.png')} profileImageFaded={true}/>
+            <Task title="Meditate" time="8:00 PM" icon={require('../../assets/TaskIcons/meditate.png')} navigation={navigation}/>
+            <Task title="Journal" time="Any time" icon={require('../../assets/TaskIcons/journal.png')}/>
+            <Task title="Listen to music" time="Any time" icon={require('../../assets/TaskIcons/music.png')}/>
+            <Task title="Take a walk" time="Any time" icon={require('../../assets/TaskIcons/walk.png')}/>
+          </View>
+        </View>
+      );
+    } 
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.scrollLimit}></View>
+      <ScrollView>
+        <WelcomeBanner/>
+        <View style={styles.feed}>
+          {getHomeVersion()}
         </View>
       </ScrollView>
       <AddHabitButton navigation={navigation}/>
@@ -118,9 +156,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingBottom: 64
   },
-
-  toast: {
-    backgroundColor: '#2c2d30'
-  }
 });
 

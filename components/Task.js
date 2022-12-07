@@ -17,9 +17,13 @@ export default function Task(props) {
                 <Text style={styles.taskTimeText}>{props.time}</Text>
                 <Text style={styles.taskTitleText}>{props.title}</Text>
                 <View style={styles.taskProfileContainer}>
-                    <Image style={styles.taskProfileImage} source={require('../assets/ProfilePictures/user.jpeg')}></Image>
-                    <Image style={styles.taskProfileImage} source={require('../assets/ProfilePictures/cole.jpeg')}></Image>
-                    <Image style={styles.taskProfileImage} source={require('../assets/ProfilePictures/lily.jpeg')}></Image>
+                    <Image style={styles.taskProfileImage} source={require('../assets/ProfilePictures/user.jpeg')}/>
+                    <View style={styles.fadedProfileImageBackground}>
+                        <Image style={[styles.taskProfileImage, { opacity: props.profileImageFaded? 0.4 : 1}]} source={require('../assets/ProfilePictures/cole.jpeg')}/>
+                    </View>
+                    <View style={styles.fadedProfileImageBackground}>
+                        <Image style={[styles.taskProfileImage, { opacity: props.profileImageFaded? 0.4 : 1}]} source={require('../assets/ProfilePictures/lily.jpeg')}/>
+                    </View>
                 </View>
             </View>
             <View style={props.complete? styles.completedTaskIconBackground : styles.taskIconBackground}>
@@ -69,6 +73,14 @@ const styles = StyleSheet.create({
         borderRadius: 100, 
         marginRight: 8,
      },
+
+    fadedProfileImageBackground: {
+        height: 32,
+        width: 32,
+        borderRadius: 100, 
+        marginRight: 8,
+        backgroundColor: '#eee1e1'
+    },
   
     taskIcon: {
         height: 30,
@@ -106,5 +118,6 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         alignSelf: 'center',
     },
+
 });
 
