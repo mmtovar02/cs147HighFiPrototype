@@ -24,6 +24,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-native": "0.70.5",
+    "react-native-countdown-timer-hooks": "^1.0.3",
     "react-native-elements": "^3.4.2",
     "react-native-modal": "^13.0.1",
     "react-native-svg": "13.4.0",

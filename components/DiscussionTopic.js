@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Image, Touchable, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useFonts, WorkSans_400Regular ,WorkSans_500Medium }from '@expo-google-fonts/work-sans';
+import CountDownTimer from 'react-native-countdown-timer-hooks';
 
 export default function ContactBlock(props) {
     let [fontsLoaded] = useFonts({
@@ -15,7 +16,10 @@ export default function ContactBlock(props) {
         <View style={styles.container}>
             <View style={[styles.contentContainer, {marginBottom: 12}]}>
                 <Text style={styles.title}>DISCUSSION TOPIC</Text>
-                <Text>Ends in 54:28</Text>
+                <View style={{flexDirection: 'row'}}>
+                    <Text style={styles.timerLabel}>Ends in </Text>
+                    <CountDownTimer timestamp={3268} textStyle={styles.timer}/>
+                </View>
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.question}>What are you doing this week to take care of yourself?</Text>
@@ -45,6 +49,18 @@ const styles = StyleSheet.create({
         fontFamily: 'WorkSans_500Medium',
         fontSize: 16,
         color: '#005453',
+    },
+
+    timerLabel: {
+        fontFamily: 'WorkSans_400Regular',
+        fontSize: 14,
+        color: '#005453'
+    },
+
+    timer: {
+        fontFamily: 'WorkSans_500Medium',
+        fontSize: 14,
+        color: '#005453'
     },
 
     question: {
