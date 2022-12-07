@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 
 import Header from '../../components/Header.js'
@@ -5,22 +6,29 @@ import DiscussionTopic from '../../components/DiscussionTopic.js'
 import ConversationBlock from '../../components/ConversationBlock.js'
 
 export default function Inbox({ navigation }) {
-    return (
-        <View style={styles.container}>
-            <Header 
+    const [askState, setAskState] = useState(true);
+
+    const getHeader = () => {
+        return askState ?
+            (<Header 
+                title='' 
+                includeBackArrow={true}
+                rightButtonLabel='Send'
+            />)
+            :
+            (<Header 
                 title='Inbox' 
                 rightButton={
-                    <Image 
-                        source={require('../../assets/NavigationIcons/newMessage.png')}
-                        style={{
-                            height: 24,
-                            width: 24,
-                            resizeMode: 'contain',
-                            alignSelf: 'center',
-                        }}
-                    />
+                    <Image source={require('../../assets/NavigationIcons/newMessage.png')} style={styles.newMessageIcon}/>
                 }
-            />
+            />);
+        
+    }
+
+
+    return (
+        <View style={styles.container}>
+            {getHeader()}
             <ScrollView>
                 <DiscussionTopic/>
                 <View style={styles.conversationContainer}>
@@ -67,4 +75,11 @@ const styles = StyleSheet.create({
         marginRight: 16,
         marginBottom: 64,
     },
+
+    newMessageIcon: {
+        height: 24,
+        width: 24,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+    }
 });

@@ -29,7 +29,11 @@ export default function ConversationBlock(props) {
                         <Text style={styles.conversationLabel}>{props.label}</Text>
                     }
                     <Text style={styles.lastMessage}>{props.lastMessage}</Text>
-                    <Text style={styles.facilitatorReminder}>{props.facilitatorReminder}</Text>
+                    {props.facilitatorReminder ?
+                        <Text style={styles.facilitatorReminder}>{props.facilitatorReminder}</Text>
+                        : ""
+                    }
+                    
                 </View>
                 {props.notification? <View style={styles.notification}/> : "" }
             </View>
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        marginBottom: 24,
+        marginBottom: 8,
     },
 
     labelContainer: {
@@ -49,6 +53,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignSelf: 'center',
+        marginTop: 8,
     },
 
     facilitatorConversationLabel: {
