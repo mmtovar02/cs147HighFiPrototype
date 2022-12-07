@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 import Header from '../../components/Header.js'
 import DiscussionTopic from '../../components/DiscussionTopic.js'
@@ -20,7 +20,9 @@ export default function Inbox({ navigation }) {
             (<Header 
                 title='Inbox' 
                 rightButton={
-                    <Image source={require('../../assets/NavigationIcons/newMessage.png')} style={styles.newMessageIcon}/>
+                    <TouchableOpacity>
+                        <Image source={require('../../assets/NavigationIcons/newMessage.png')} style={styles.newMessageIcon}/>
+                    </TouchableOpacity>
                 }
             />);
     }
