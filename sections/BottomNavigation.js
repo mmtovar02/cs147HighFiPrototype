@@ -3,6 +3,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import WelcomeBanner from '../components/WelcomeBanner.js';
 import HomeStack from './HomeStack.js'
+import Inbox from '../screens/Facilitate/Inbox.js'
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -34,7 +35,7 @@ export default function BottomNavigation() {
         }}/>
     <Tab.Screen 
         name='Chat' 
-        component={WelcomeBanner} 
+        component={Inbox} 
         options={{
         tabBarIcon: ({color}) =>
             (<FontAwesome5 name='comment' size={24} color={color}/>)

@@ -24,10 +24,10 @@ export default function Header(props) {
     const getRightComponents = () => {
         if (props.rightButtonLabel) {
             return (
-                <TouchableOpacity onPress={props.onRightButtonPress} style={styles.rightButton}>
-                    <Text style={styles.rightButtonLabel}>{props.rightButtonLabel}</Text>
-                </TouchableOpacity>
+                <Text style={styles.rightButtonLabel}>{props.rightButtonLabel}</Text>
             );
+        } else if (props.rightButton) {
+            return props.rightButton;
         }
     }
 
@@ -35,7 +35,9 @@ export default function Header(props) {
         <View style={styles.header}>
             {getLeftComponents()}
             <Text style={styles.headerTitle}>{props.title}</Text>
-            {getRightComponents()}
+            <TouchableOpacity onPress={props.onRightButtonPress} style={styles.rightButton}>
+                {getRightComponents()}
+            </TouchableOpacity>
         </View>   
     );
 }
