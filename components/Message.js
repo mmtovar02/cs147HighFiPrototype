@@ -14,7 +14,7 @@ export default function Message(props) {
     return (
         <View style={[styles.container, { flexDirection: props.user ? 'row-reverse': 'row'}]}>
             <View style={styles.imageContainer}>
-                <Image source={props.image} style={styles.image}/>
+                <Image source={props.image} style={[styles.image, {opacity: props.removeImage? 0 : 1}]}/>
             </View>
             <View style={styles.messageContainer}>
                 {props.label? <Text style={styles.labelText}>{props.label}</Text> : ''}

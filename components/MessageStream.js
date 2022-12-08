@@ -12,20 +12,6 @@ export default function MessageStream({ navigation }) {
         return null;
     }
 
-    const getLastMessages = () => {
-        if (props.version == 'discussionTopic') {
-            return (
-                <View>
-                    <Message 
-                        message="What are you doing this week to take care of yourself?"
-                        image={require('../assets/ProfilePictures/user.jpeg')}
-                        user={true}
-                    />
-                </View>
-            );
-        }
-    }
-
     return (
         <View style={styles.container}>
             <Message 
@@ -57,7 +43,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffff',
-        marginBottom: 16,
     },
 
 });

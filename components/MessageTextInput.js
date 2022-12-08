@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Image, Text, View, TextInput, Keyboard, TouchableOpacity } from 'react-native';
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium }from '@expo-google-fonts/work-sans';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5, Feather } from '@expo/vector-icons';
 
-export default function MessageTextInput() {
+export default function MessageTextInput(props) {
+    const [text, onTextChange] = useState('');
     const [keyboardOffset, setKeyboardOffset] = useState(40);
 
     useEffect(() => {
@@ -25,18 +26,34 @@ export default function MessageTextInput() {
         return null;
     }
 
+    const sendMessage = () => {
+        onTextChange('');
+        props.setMessageSent(true);
+    }
+
     return (
         <View style={styles.container}>
-            <View style={[styles.textInputContainer, { bottom: keyboardOffset, }]}>
-                <TouchableOpacity style={styles.topicsButton}>
-                    <Image source={require('../assets/NavigationIcons/topics.png')} style={styles.topicsIcon}/>
-                    <Text style={styles.topicsLabel}>Topics</Text>
-                </TouchableOpacity>
+            <View style={[styles.textInputContainer, { bottom: keyboardOffset, flexDirection: text.length == 0? 'row' : 'row-reverse'}]}>
+                {text.length == 0?
+                    <TouchableOpacity style={styles.topicsButton}>
+                        <Image source={require('../assets/NavigationIcons/topics.png')} style={styles.topicsIcon}/>
+                        <Text style={styles.topicsLabel}>Topics</Text>
+                    </TouchableOpacity>
+                    : 
+                    <TouchableOpacity onPress={sendMessage}style={styles.sendButton}>
+                        <Feather name='arrow-right' size={24} color='#005453'/>
+                    </TouchableOpacity> 
+                }
                 <View style={{flex: 1, height: 32, flexDirection: 'row', }}>
                     <TextInput 
                         style={[styles.textInput] }
                         placeholder='Aa'
                         placeholderTextColor='#767c8a'
+                        multiline={true}
+                        value={text}
+                        onChangeText={(text) => onTextChange("How are you all doing?".substring(0, text.length))}
+                        maxLength={22}
+                        onSubmitEditing={sendMessage}                      
                     /> 
                     <TouchableOpacity style={styles.microphone}>
                         <FontAwesome5 name='microphone' size={18} color='#2c2d30' />
@@ -70,7 +87,8 @@ const styles = StyleSheet.create({
         color: '#2c2d30',
         fontFamily: 'WorkSans_400Regular',
         fontSize: 16,
-        paddingHorizontal: 16,
+        paddingLeft: 16,
+        paddingRight: 28,
     },
 
     topicsButton: {
@@ -82,6 +100,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center', 
         alignItems: 'center'
+    },
+
+    sendButton: {
+        marginLeft: 16,
+        height: 32,
+        width: 32,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#a4dfde'
     },
 
     bottomBorder: {

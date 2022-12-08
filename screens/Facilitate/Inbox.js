@@ -15,7 +15,7 @@ export default function Inbox({ navigation }) {
                 includeBackArrow={true}
                 onBackArrowPress={() => setAskState(!askState)}
                 rightButtonLabel='Send'
-                onRightButtonPress={() => navigation.navigate('Conversation')}
+                onRightButtonPress={() => navigation.navigate('Conversation', { discussionTopic: true})}
             />)
             :
             (<Header 
