@@ -6,6 +6,7 @@ import BottomNavigation from './sections/BottomNavigation.js';
 import WaitingRoom from './screens/Meditation/WaitingRoom.js';
 import GroupMeditation from './screens/Meditation/GroupMeditation.js';
 import MeditationCompletion from './screens/Meditation/MeditationCompletion.js';
+import Conversation from './screens/Facilitate/Conversation.js';
 
 
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="WaitingRoom" component={WaitingRoom}/>
         <Stack.Screen name="GroupMeditation" component={GroupMeditation}/>
         <Stack.Screen name="MeditationCompletion" component={MeditationCompletion}/>
+        <Stack.Screen name="Conversation" component={Conversation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
