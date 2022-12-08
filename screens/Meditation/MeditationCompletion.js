@@ -75,37 +75,37 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 98
+        marginTop: 146
     }
 })
 
 function MeditationCompletion(props){
     return(
-        <View style = {styles.container}>
-            
-            <View style = {styles.circle}> 
-                <Image style = {styles.heartImage} source={require('../../assets/HeartEmoticons/amazing.png')}></Image>
+        <View style = {styles.container}> 
+            <View style = {styles.container}>
+                <View style = {styles.circle}> 
+                    <Image style = {styles.heartImage} source={require('../../assets/HeartEmoticons/amazing.png')}></Image>
+                </View>
+                <View style = {styles.greatJobContainer}> 
+                    <Text style = {styles.greatJobText}> Great job!</Text>
+                    <Text style = {styles.everyoneText}> Everybody in your group meditated today. </Text>
+                </View>
+                <View style = {styles.profileImageContainer}> 
+                    <Image style = {{...styles.profileImage, marginRight: 8}} source={require('../../assets/ProfilePictures/cole.jpeg')}></Image>
+                    <Image style = {{...styles.profileImage, marginLeft: 8, marginRight: 8}} source={require('../../assets/ProfilePictures/lily.jpeg')}></Image>
+                    <Image style = {{...styles.profileImage, marginLeft: 8}} source={require('../../assets/ProfilePictures/user.jpeg')}></Image>
+                </View>
+                <View style = {styles.streakContainer}>
+                    <Text style = {styles.streakText}>
+                        3 day group streak
+                    </Text>
+                </View>
             </View>
-            <View style = {styles.greatJobContainer}> 
-                <Text style = {styles.greatJobText}> Great job!</Text>
-                <Text style = {styles.everyoneText}> Everybody in your group meditated today. </Text>
-            </View>
-            <View style = {styles.profileImageContainer}> 
-                <Image style = {{...styles.profileImage, marginRight: 8}} source={require('../../assets/ProfilePictures/cole.jpeg')}></Image>
-                <Image style = {{...styles.profileImage, marginLeft: 8, marginRight: 8}} source={require('../../assets/ProfilePictures/lily.jpeg')}></Image>
-                <Image style = {{...styles.profileImage, marginLeft: 8}} source={require('../../assets/ProfilePictures/user.jpeg')}></Image>
-            </View>
-            <View style = {styles.streakContainer}>
-                <Text style = {styles.streakText}>
-                    3 day group streak
-                </Text>
-            </View>
-            <View style = {{marginTop: 88}}>
-                <TouchableOpacity >
-                    <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home', { version: 'meditationComplete' })}}> </NavigationButton> 
-                </TouchableOpacity>
+            <View style = {{marginBottom: 24}}>
+                <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home', { version: 'meditationComplete' })}}> </NavigationButton> 
             </View> 
         </View>
+        
     );
 }
 
