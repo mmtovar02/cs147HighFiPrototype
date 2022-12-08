@@ -24,7 +24,6 @@ export default function App() {
         <Stack.Screen name="BottomNavigation" component={BottomNavigation}/>
         <Stack.Screen name="WaitingRoom" component={WaitingRoom}/>
         <Stack.Screen name="GroupMeditation" component={GroupMeditation}/>
-        
         <Stack.Screen name="Conversation" component={Conversation} />
       </Stack.Navigator>
    </NavigationContainer>

@@ -12,7 +12,6 @@ export default function NavigationButton({text, onPress}) {
             justifyContent: 'center',
             
         },
-
         buttonText: {
             color: '#005453',
             textAlign: 'center',
