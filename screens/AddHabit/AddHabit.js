@@ -33,7 +33,7 @@ export default function AddHabit({navigation, route}) {
     let getHabitVersion = () => {
         if (version == 'default') {
             return(
-                <View >
+                <View style={{justifyContent:'space-between', flex:1, marginTop: 24}}>
                 <Habit textHeader='Do yoga' textBody='Connect with your body' icon = {require('../../assets/TaskIcons/yoga.png')} onPress={() => {navigation.navigate('AddHabit', { version: 'YogaSelected' })}}> </Habit>
                 <Habit textHeader='Draw' textBody = 'Let your creative juices flow freely' icon={require('../../assets/TaskIcons/draw.png')}></Habit>
                 <Habit textHeader='Get outside' textBody = 'Take in nature and enjoy the scenery' icon={require('../../assets/TaskIcons/get-outside.png')}></Habit>
@@ -46,7 +46,7 @@ export default function AddHabit({navigation, route}) {
             )
         } else if (version == 'YogaSelected') {
             return(
-            <View>
+            <View style={{justifyContent:'space-between', flex:1, marginTop: 24}}>
                 <Habit textHeader='Do yoga' textBody='Connect with your body' icon = {require('../../assets/TaskIcons/yoga.png')}> </Habit>
                 <HabitProperty icon={require('../../assets/HabitProperties/friends.png')} text='Add friends' onPress={() => {navigation.navigate('AddFriends')}}/>
                 <HabitProperty icon={require('../../assets/HabitProperties/frequency.png')} text='Daily'/>

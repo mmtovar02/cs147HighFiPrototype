@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontFamily: 'WorkSans_400Regular',
         color: '#2c2d30',
-        //justifyContent: 'space-between'
+        justifyContent: 'space-between'
       },
     pinkBackground: {
         backgroundColor:'#fff1ef',
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 function WaitingRoom(props) {
     return(
         // Remember to change ScrollView back to normal View if we don't keep it
-        <ScrollView style = {styles.container}>
+        <View style = {styles.container}>
             <Header 
                     title='Waiting Room' 
                     includeBackArrow={true} 
@@ -129,10 +129,9 @@ function WaitingRoom(props) {
                     <Text style = {{...styles.toggleText, marginRight: 22}}> Audio </Text>
                     <SwitchButton> </SwitchButton>
                 </View> 
-                
-                <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
-        </ScrollView>
+            <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
+        </View>
         
     );
 }
