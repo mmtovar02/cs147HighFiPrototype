@@ -24,11 +24,10 @@ export default function App() {
           headerShown: false
         }}
       >
-        
         <Stack.Screen name="BottomNavigation" component={BottomNavigation}/>
         <Stack.Screen name="WaitingRoom" component={WaitingRoom}/>
         <Stack.Screen name="GroupMeditation" component={GroupMeditation}/>
-        <Stack.Screen name="MeditationCompletion" component={MeditationCompletion}/>
+        
       </Stack.Navigator>
    </NavigationContainer>
 

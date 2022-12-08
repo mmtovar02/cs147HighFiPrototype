@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
+import Header from '../../components/Header.js';
 
 import NavigationButton from '../../components/NavigationButton.js'
 import SwitchButton from '../../components/SwitchButton.js'
@@ -18,11 +19,15 @@ const styles = StyleSheet.create({
       },
     pinkBackground: {
         backgroundColor:'#fff1ef',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1
       },
     
     whiteBackground: {
         backgroundColor: '#fff',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 2
     },
 
     friendContainer: { 
@@ -39,11 +44,14 @@ const styles = StyleSheet.create({
     getReadyWithGroup: {
         fontFamily: 'WorkSans_400Regular',
         textAlign: 'center',
-        justifyContent: 'center',
         fontSize: 24,
-        marginTop: 74,
-        marginLeft: 43,
-        marginRight: 44
+         flexWrap: 'wrap',
+       // flexShrink: 1,
+        marginLeft: 23,
+        marginRight: 23,
+        // height: 56,
+        // width: 303,
+        numberOfLines: 2
     },
     coleAndLilyText: {
         fontFamily: 'WorkSans_400Regular',
@@ -96,7 +104,13 @@ const styles = StyleSheet.create({
 
 function WaitingRoom(props) {
     return(
+        
         <View style = {styles.container}>
+            <Header 
+                    title='Waiting Room' 
+                    includeBackArrow={true} 
+                    onBackArrowPress={() => props.navigation.goBack()}
+                    />
             <View style = {styles.pinkBackground}> 
                 <Text style = {styles.getReadyWithGroup}> Get ready to meditate with your group </Text>
                 <View style = {styles.friendContainer}>

@@ -47,9 +47,13 @@ const styles = StyleSheet.create({
     },
 });
 
+
 export default function Habit(props) {
+
+    // let {isLast} = props.isLast ? props.isLast: false;
+    
     return(
-    <TouchableOpacity style = {styles.habitContainer}> 
+    <TouchableOpacity style = {styles.habitContainer} onPress={props.onPress}> 
         <View style = {styles.iconContainer}>
             <View style ={styles.iconBackground} > 
                 <Image style = {styles.habitIcon} source={props.icon}/>

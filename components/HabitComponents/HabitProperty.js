@@ -1,5 +1,6 @@
 import {StyleSheet, TouchableOpacity, Text, View, Image} from 'react-native';
 import { useFonts, WorkSans_400Regular, WorkSans_500Medium, WorkSans_600SemiBold } from '@expo-google-fonts/work-sans';
+import AddFriends from '../../screens/AddHabit/AddFriends.js'
 
 const styles = StyleSheet.create({
     propertyContainer: {
@@ -7,7 +8,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#E1E4EB',
         //justifyContent: 'center',
-        marginTop: 100,
+        marginTop: 46,
+        height: 70,
+        alignItems: 'flex-start'
     },
 
     propertyIcon: {
@@ -24,11 +27,11 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function HabitProperty({icon, text}) {
+export default function HabitProperty(props) {
     return(
-    <TouchableOpacity style = {styles.propertyContainer}> 
-        <Image style = {styles.propertyIcon} source={icon}/>
-        <Text style = {styles.propertyText}> {text}</Text>
+    <TouchableOpacity style = {styles.propertyContainer} onPress={props.onPress}> 
+        <Image style = {styles.propertyIcon} source={props.icon}/>
+        <Text style = {styles.propertyText}>{props.text}</Text>
     </TouchableOpacity>
     );
 }
