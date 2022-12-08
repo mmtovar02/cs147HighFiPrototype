@@ -16,12 +16,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontFamily: 'WorkSans_400Regular',
         color: '#2c2d30',
-        justifyContent: 'space-between'
       },
+
     pinkBackground: {
         backgroundColor:'#fff1ef',
         justifyContent: 'center',
-        alignItems: 'center',   
+        alignItems: 'center', 
+    
       },
     
     whiteBackground: {
@@ -76,10 +77,10 @@ const styles = StyleSheet.create({
      },
 
     userImage: {
-        marginTop: 16,
+        marginTop: 8,
         resizeMode: 'cover',
-        height: 210,
-        width: 360,
+        height: 180,
+        width: 355,
         borderRadius: 12
      },
 
@@ -119,18 +120,20 @@ function WaitingRoom(props) {
                 <Text style = {styles.coleAndLilyText}> Cole and Lily are ready </Text>
                 <Text style = {styles.soloMeditateText}> I want to meditate on my own</Text>
             </View>
-            <View style = {styles.whiteBackground}>
+            <View style = {[styles.whiteBackground, {flex: 1,justifyContent: 'space-between'}]}>
                 <Image style = {styles.userImage} source={require('../../assets/ProfilePictures/user.jpeg')}></Image>
                 <View style = {{...styles.toggleContainer, marginTop: 16}}>  
                     <Text style = {styles.toggleText}> Video  </Text>
                     <SwitchButton> </SwitchButton>
                 </View>
-                <View style = {{...styles.toggleContainer, marginTop: 16, marginBottom: 58}}>
+                <View style = {{...styles.toggleContainer, marginTop: 8}}>
                     <Text style = {{...styles.toggleText, marginRight: 22}}> Audio </Text>
                     <SwitchButton> </SwitchButton>
                 </View> 
+
+                <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
-            <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
+            
         </View>
         
     );
