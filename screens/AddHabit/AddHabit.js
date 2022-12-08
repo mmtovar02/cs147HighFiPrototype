@@ -10,6 +10,8 @@ import SearchField from '../../components/SearchField.js';
 import ContactBlock from '../../components/ContactBlock.js';
 import Habit from '../../components/HabitComponents/Habit.js';
 import HabitProperty from '../../components/HabitComponents/HabitProperty.js'
+import NavigationButton from '../../components/NavigationButton.js'
+
 import { useLinkProps } from '@react-navigation/native';
 //import styles from 'rn-range-slider/styles.js';
 
@@ -26,7 +28,6 @@ export default function AddHabit({navigation, route}) {
     if (!fontsLoaded) { 
         return null;
     }
-
 
     let {version} = route.params ? route.params : {version: 'default'};
     
@@ -54,10 +55,24 @@ export default function AddHabit({navigation, route}) {
                 <HabitProperty icon={require('../../assets/HabitProperties/time.png')} text='Any time of day'/>
             </View>
             );
+        } else if (version == 'friendsSelected') {
+            return(
+                <View>
+                    <View> 
+                        <Habit textHeader='Do yoga' textBody='Connect with your body' icon = {require('../../assets/TaskIcons/yoga.png')}> </Habit>
+                        <HabitProperty icon={require('../../assets/HabitProperties/friends.png')} friendsSelected={true}/>
+                        <HabitProperty icon={require('../../assets/HabitProperties/frequency.png')} text='Daily'/>
+                        <HabitProperty icon={require('../../assets/HabitProperties/end-date.png')} text='Does not end'/>
+                        <HabitProperty icon={require('../../assets/HabitProperties/time.png')} text='Any time of day'/>
+                    </View>
+                    <View style = {{alignSelf:'center', marginTop: 216, position: 'relative'}}>
+                        <NavigationButton text ='Save' onPress={() => {navigation.navigate('Home', { version: 'addHabitComplete' })}}> </NavigationButton> 
+                    </View>
+                </View>
+               
+                )
         }
-
     }
-    
         return(
             <View style = {{backgroundColor: 'white', flex: 1}}>
                 <Header 
@@ -68,6 +83,7 @@ export default function AddHabit({navigation, route}) {
                 <View style = {{marginTop: 24}}> 
                     {getHabitVersion()}
                 </View>
+ 
             </View>
         );
     

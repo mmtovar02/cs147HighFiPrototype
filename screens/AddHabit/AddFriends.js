@@ -29,7 +29,7 @@ export default function AddFriends({ navigation }) {
                         position: 'bottom', 
                         bottomOffset: 0,
                     });
-                    navigation.navigate('Home', { version: 'addHabitComplete' });
+                    navigation.navigate('AddHabit', { version: 'friendsSelected' });
                 }} 
             />
             <ScrollView>
