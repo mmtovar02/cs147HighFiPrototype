@@ -47,17 +47,17 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function Habit({icon, textHeader, textBody}) {
+export default function Habit(props) {
     return(
     <TouchableOpacity style = {styles.habitContainer}> 
         <View style = {styles.iconContainer}>
             <View style ={styles.iconBackground} > 
-                <Image style = {styles.habitIcon} source={icon}/>
+                <Image style = {styles.habitIcon} source={props.icon}/>
             </View>
         </View>
         <View style = {styles.habitTextContainer}>
-            <Text style={styles.textHeader}> {textHeader} </Text>
-            <Text style={styles.textBody}> {textBody}</Text>
+            <Text style={styles.textHeader}> {props.textHeader} </Text>
+            <Text style={styles.textBody}> {props.textBody}</Text>
         </View>
     </TouchableOpacity>
     );

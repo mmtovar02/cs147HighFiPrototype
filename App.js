@@ -9,20 +9,22 @@ import WaitingRoom from './screens/Meditation/WaitingRoom.js';
 import GroupMeditation from './screens/Meditation/GroupMeditation.js';
 import MeditationCompletion from './screens/Meditation/MeditationCompletion.js';
 
+import HabitProperty from './components/HabitComponents/HabitProperty.js'
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <AddHabit/>
-    /*
+    //<HabitProperty text='Hi' icon={require('./assets/TaskIcons/breathing.png')}/>
+    //<AddHabit></AddHabit>
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false
         }}
       >
-        <Stack.Screen name="NewHabit" component={AddHabit}/>
+        
         <Stack.Screen name="BottomNavigation" component={BottomNavigation}/>
         <Stack.Screen name="WaitingRoom" component={WaitingRoom}/>
         <Stack.Screen name="GroupMeditation" component={GroupMeditation}/>
@@ -30,7 +32,6 @@ export default function App() {
       </Stack.Navigator>
    </NavigationContainer>
 
-   */
   );
 }
 
