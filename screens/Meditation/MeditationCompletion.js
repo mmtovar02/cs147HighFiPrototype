@@ -1,20 +1,25 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, View, Image, Button, TouchableOpacity} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 
 import NavigationButton from '../../components/NavigationButton.js'
 
 const styles = StyleSheet.create({
-    container: {
+    outerContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+      },
+
+    innerContainer: {
         flex: 1,
         backgroundColor: '#fff',
         fontFamily: 'WorkSans_400Regular',
         color: '#2c2d30',
-        alignItems: 'center'
-      },
+        alignItems: 'center',
+    },
     
     greatJobContainer: {
         fontFamily: 'WorkSans_400Regular',
@@ -43,8 +48,8 @@ const styles = StyleSheet.create({
     heartImage: {
         height: 101,
         width: 129,
-        
     },
+
     profileImage: {
         height: 48,
         width: 48,
@@ -75,14 +80,14 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 146
+        marginTop: '20%'
     }
 })
 
 function MeditationCompletion(props){
     return(
-        <View style = {styles.container}> 
-            <View style = {styles.container}>
+        <View style = {styles.outerContainer}>
+            <View style = {styles.innerContainer}>
                 <View style = {styles.circle}> 
                     <Image style = {styles.heartImage} source={require('../../assets/HeartEmoticons/amazing.png')}></Image>
                 </View>
@@ -101,11 +106,13 @@ function MeditationCompletion(props){
                     </Text>
                 </View>
             </View>
-            <View style = {{marginBottom: 24}}>
-                <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home', { version: 'meditationComplete' })}}> </NavigationButton> 
-            </View> 
+            <View style = {{alignSelf:'center', marginBottom: 24}}> 
+            <NavigationButton text ='Return to Home' onPress={() => {props.navigation.navigate('Home', { version: 'meditationComplete' })}}> </NavigationButton> 
+            </View>
+        {/* <View style = {{marginBottom: 24}}>
+            </View>  
+    </View> */}
         </View>
-        
     );
 }
 

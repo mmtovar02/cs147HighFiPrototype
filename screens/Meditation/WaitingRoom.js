@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView, View, Image, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, View, Image, Button, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
 import Header from '../../components/Header.js';
@@ -16,18 +16,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontFamily: 'WorkSans_400Regular',
         color: '#2c2d30',
+        //justifyContent: 'space-between'
       },
     pinkBackground: {
         backgroundColor:'#fff1ef',
         justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1
+        alignItems: 'center',   
       },
     
     whiteBackground: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        flex: 2
     },
 
     friendContainer: { 
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
         fontFamily: 'WorkSans_400Regular',
         textAlign: 'center',
         fontSize: 24,
-         flexWrap: 'wrap',
+        flexWrap: 'wrap',
        // flexShrink: 1,
         marginLeft: 23,
         marginRight: 23,
@@ -104,8 +103,8 @@ const styles = StyleSheet.create({
 
 function WaitingRoom(props) {
     return(
-        
-        <View style = {styles.container}>
+        // Remember to change ScrollView back to normal View if we don't keep it
+        <ScrollView style = {styles.container}>
             <Header 
                     title='Waiting Room' 
                     includeBackArrow={true} 
@@ -133,7 +132,7 @@ function WaitingRoom(props) {
                 
                 <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
-        </View>
+        </ScrollView>
         
     );
 }

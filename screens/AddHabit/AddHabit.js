@@ -13,7 +13,6 @@ import HabitProperty from '../../components/HabitComponents/HabitProperty.js'
 import NavigationButton from '../../components/NavigationButton.js'
 
 import { useLinkProps } from '@react-navigation/native';
-//import styles from 'rn-range-slider/styles.js';
 
 const styles = StyleSheet.create({
 
@@ -34,7 +33,7 @@ export default function AddHabit({navigation, route}) {
     let getHabitVersion = () => {
         if (version == 'default') {
             return(
-                <View style = {{marginTop: 24}}>
+                <View >
                 <Habit textHeader='Do yoga' textBody='Connect with your body' icon = {require('../../assets/TaskIcons/yoga.png')} onPress={() => {navigation.navigate('AddHabit', { version: 'YogaSelected' })}}> </Habit>
                 <Habit textHeader='Draw' textBody = 'Let your creative juices flow freely' icon={require('../../assets/TaskIcons/draw.png')}></Habit>
                 <Habit textHeader='Get outside' textBody = 'Take in nature and enjoy the scenery' icon={require('../../assets/TaskIcons/get-outside.png')}></Habit>
@@ -57,7 +56,7 @@ export default function AddHabit({navigation, route}) {
             );
         } else if (version == 'friendsSelected') {
             return(
-                <View>
+                <View style={{justifyContent:'space-between', flex:1, marginTop: 24}}>
                     <View> 
                         <Habit textHeader='Do yoga' textBody='Connect with your body' icon = {require('../../assets/TaskIcons/yoga.png')}> </Habit>
                         <HabitProperty icon={require('../../assets/HabitProperties/friends.png')} friendsSelected={true}/>
@@ -65,7 +64,7 @@ export default function AddHabit({navigation, route}) {
                         <HabitProperty icon={require('../../assets/HabitProperties/end-date.png')} text='Does not end'/>
                         <HabitProperty icon={require('../../assets/HabitProperties/time.png')} text='Any time of day'/>
                     </View>
-                    <View style = {{alignSelf:'center', marginTop: 216, position: 'relative'}}>
+                    <View style = {{alignSelf:'center'}}>
                         <NavigationButton text ='Save' onPress={() => {navigation.navigate('Home', { version: 'addHabitComplete' })}}> </NavigationButton> 
                     </View>
                 </View>
@@ -80,10 +79,10 @@ export default function AddHabit({navigation, route}) {
                     includeBackArrow={true} 
                     onBackArrowPress={() => navigation.goBack()}
                     />
-                <View style = {{marginTop: 24}}> 
                     {getHabitVersion()}
-                </View>
- 
+                {/*  <View style = {{marginTop: 24}}> 
+                    
+                </View> */}
             </View>
         );
     
