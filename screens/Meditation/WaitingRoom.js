@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView, ScrollView, View, Image, Button, TouchableOpacity} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import {useFonts, WorkSans_400Regular, WorkSans_500Medium} from '@expo-google-fonts/work-sans'
+import { Feather, FontAwesome5, FontAwesome } from "@expo/vector-icons";
 import Header from '../../components/Header.js';
 
 import NavigationButton from '../../components/NavigationButton.js'
@@ -92,8 +93,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         color: '#005453',
-        marginTop: 24,
-        marginBottom: 16
+        //marginTop: 24,
+       // marginBottom: 16
 
     },
 });
@@ -114,8 +115,11 @@ function WaitingRoom(props) {
                     <Image style = {styles.profileImage} source={require('../../assets/ProfilePictures/lily.jpeg')}></Image>
                 </View>
                 <Text style = {styles.coleAndLilyText}> Cole and Lily are ready </Text>
-                <TouchableOpacity>
-                    <Text style = {styles.soloMeditateText}> I want to meditate on my own</Text>
+                <TouchableOpacity style={{marginTop: 24, marginBototm: 16}}>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style = {styles.soloMeditateText}> I want to meditate on my own</Text> 
+                        <Feather name="arrow-right" size={18} color="#005453" />
+                    </View>
                 </TouchableOpacity>
             </View>
             <View style = {styles.whiteBackground}>
@@ -130,7 +134,6 @@ function WaitingRoom(props) {
                         <SwitchButton> </SwitchButton>
                     </View> 
                 </View> 
-                
                 <NavigationButton text='Enter Session' onPress={() => {props.navigation.navigate('GroupMeditation')}}> </NavigationButton>
             </View>
         </ScrollView>
