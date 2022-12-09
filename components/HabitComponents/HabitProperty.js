@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E1E4EB',
         //justifyContent: 'center',
         //marginTop: 36,
-        height: 70,
+        paddingVertical: 15,
+        //height: 70,
         alignItems: 'center'
     },
 

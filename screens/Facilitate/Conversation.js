@@ -12,6 +12,7 @@ import CallAndVideoButtons from "../../components/CallAndVideoButtons.js";
 import MessageStream from "../../components/MessageStream.js";
 import Message from "../../components/Message.js";
 import MessageTextInput from "../../components/MessageTextInput.js";
+import VideoConference from "./VideoConference.js"
 
 export default function Conversation({ navigation, route }) {
   const [messageSent, setMessageSent] = useState(false);
