@@ -1,16 +1,5 @@
-import { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Image,
-  Text,
-  View,
-  ScrollView,
-  TextInput,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
-  TouchableOpacity,
-} from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   useFonts,
@@ -23,7 +12,6 @@ import CallAndVideoButtons from "../../components/CallAndVideoButtons.js";
 import MessageStream from "../../components/MessageStream.js";
 import Message from "../../components/Message.js";
 import MessageTextInput from "../../components/MessageTextInput.js";
-import DiscussionTopic from "../../components/DiscussionTopic.js";
 
 export default function Conversation({ navigation, route }) {
   const [messageSent, setMessageSent] = useState(false);
@@ -33,11 +21,9 @@ export default function Conversation({ navigation, route }) {
     WorkSans_400Regular,
     WorkSans_500Medium,
   });
-
   if (!fontsLoaded) {
     return null;
   }
-
   let { discussionTopic } = route.params
     ? route.params
     : { discussionTopic: false };
@@ -54,7 +40,6 @@ export default function Conversation({ navigation, route }) {
         }
       />
       <KeyboardAwareScrollView
-        style={{ marginBottom: 60 }}
         ref={(ref) => {
           setRef(ref);
         }}
@@ -82,6 +67,7 @@ export default function Conversation({ navigation, route }) {
         ) : (
           ""
         )}
+        <View style={{ marginBottom: 88 }} />
       </KeyboardAwareScrollView>
       <MessageTextInput setMessageSent={setMessageSent} />
     </View>
