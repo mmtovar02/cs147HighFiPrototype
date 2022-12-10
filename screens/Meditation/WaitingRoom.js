@@ -126,7 +126,7 @@ function WaitingRoom(props) {
                 <Image style = {styles.userImage} source={require('../../assets/ProfilePictures/user.jpeg')}></Image>
                 <View style = {{justifyContent: 'center', flexDirection: 'row'}}>
                     <View style = {{...styles.toggleContainer, marginTop: 16}}>  
-                        <Text style = {styles.toggleText}> Video  </Text>
+                        <Text style = {styles.toggleText}> Video </Text>
                         <Text style = {styles.toggleText}> Audio </Text>
                     </View>
                     <View style = {{...styles.toggleContainer, marginTop: 16, marginBottom: 58}}>

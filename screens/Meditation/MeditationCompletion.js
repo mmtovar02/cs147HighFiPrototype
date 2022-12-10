@@ -64,13 +64,21 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection:'row',
         marginTop: 24
+    },
+
+    streakIcon: {
+        height: 24,
+        width: 24,
+        resizeMode:'contain',
+        marginRight: 8
     },
 
     streakText: {
         fontFamily: 'WorkSans_500Medium',
         fontSize: 20,
-        color: '#FF8E1A'
+        color: '#DC5D47'
     },
 
     circle: {
@@ -101,6 +109,7 @@ function MeditationCompletion(props){
                     <Image style = {{...styles.profileImage, marginLeft: 8}} source={require('../../assets/ProfilePictures/user.jpeg')}></Image>
                 </View>
                 <View style = {styles.streakContainer}>
+                    <Image style ={styles.streakIcon} source={require('../../assets/Miscellaneous/streak.png')}></Image>
                     <Text style = {styles.streakText}>
                         3 day group streak
                     </Text>
